@@ -1,0 +1,63 @@
+#include<iostream>
+#include <math.h> 
+#include <stdexcept>
+#include <string>
+#include <random>
+#include <time.h>
+
+using namespace std;
+
+class Ciclista{
+    
+    string ciclista;
+    string run;
+//    srand(time(0));
+    int tiempo = rand()%300;
+
+public:
+    
+    Ciclista(string name,string carrera){
+        ciclista = name;
+        run = carrera;
+    }
+        //Getters
+    int getTime() {
+        return tiempo;
+    }
+    string getCarrera() {
+        return run;
+    }
+    string getCiclista() {
+        return ciclista;
+    }
+    
+};
+
+int main(){
+    //MTRIZ DE RECORDS------------
+    int records[5][5];
+    for(int i=0;i<5;i++){
+        for(int j=0;j<5;j++){
+            if(i==j){
+                records[i][j]=-1;
+            }else{
+                records[i][j]=rand()%100;
+            }
+        }
+    }
+    for(int i=0; i<5; i++){
+       for(int j=0; j<5; j++){
+           cout<<records[i][j]<<"\t";
+       }
+       cout<<"\n";
+   }
+   //-----------------------------
+   
+   Ciclista b = Ciclista("Nairo","chapi");
+   cout<<b.getTime()<<"\t"<<b.getCarrera()<<endl;
+   
+    Ciclista c = Ciclista("Nairo","chapi");
+   cout<<c.getTime()<<"\t"<<c.getCarrera()<<endl;
+
+    return 0;
+}
