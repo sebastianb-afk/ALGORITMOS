@@ -1,0 +1,127 @@
+
+#include <iostream>
+using namespace std;
+
+int pp(int v[], int v1[], int tam){
+    int sum=0,a=0;
+    for(int i=0;i<tam;i++){
+        a = v[i]*v1[i];
+        sum+=a; 
+    }
+    return sum;
+}
+
+int pc(int v[], int){
+    
+}
+
+int main() {
+    int v[3];
+    int v1[3];
+     
+    for (int i =0;i<3;i++){
+        v[i]=i;
+        v1[i]=i+5;
+    }
+        for (int j =0;j<3;j++){
+        cout<<v[j]<<"\t";
+    }
+    cout<<"\n";
+        for (int j =0;j<3;j++){
+        cout<<v1[j]<<"\t";
+    }
+    cout<<"\n"<<"PP"<<pp(v,v1,3);
+    return 0;
+}
+_________________________________________________________________________________________________________________________________________________________
+
+
+#include <iostream>
+using namespace std;
+
+int pc(int v[], int v1[], int tam){
+    int a,b,c,d,e,f,sum;
+    a = v[1]*v1[2];
+    b = v[2]*v1[1];
+    c = v[2]*v1[0];
+    d = v[0]*v1[2];
+    e = v[0]*v1[1];
+    f = v[1]*v1[0];
+    return a-b,c-d,e-f;
+}
+
+int main() {
+    int v[3];
+    int v1[3];
+     
+    for (int i =0;i<3;i++){
+        v[i]=i;
+        v1[i]=i+5;
+    }
+        for (int j =0;j<3;j++){
+        cout<<v[j]<<"\t";
+    }
+    cout<<"\n";
+        for (int j =0;j<3;j++){
+        cout<<v1[j]<<"\t";
+    }
+    cout<<"\n";
+    cout<<pc(v,v1,3);
+    return 0;
+}
+
+  /*  int w;
+    for(int i=0;i<tam;i++){
+        w=(v[i+1]*v1[i+2])-(v[i+2]*v1[i+1]);
+    }
+    return w;*/
+
+______________________________________________________________________________________________________________________________________________________________
+
+
+#include <iostream>
+using namespace std;
+
+//void
+
+int mv(int m[][3],int v[], int tam){
+    int w;
+    for(int i=0;i<tam;i++){
+        for(int j=0;j<i;j++){
+            w=i*tam + j;
+            cout<<w<<endl;
+        }
+    }
+    return 0;
+}
+
+int main()
+{
+   int mat[3][3];
+   int n=3;
+   int m=3;
+   
+   for(int i=0; i<n; i++){
+       for(int j=0; j<m; j++){
+           mat[i][j] = i*m + j;
+       }
+   }
+   
+   for(int i=0; i<n; i++){
+       for(int j=0; j<m; j++){
+           cout<<mat[i][j]<<"\t";
+       }
+       cout<<"\n";
+   }
+   cout<<"\n";
+   cout<<"\n";
+   int v[3];
+   for (int i =0;i<3;i++){
+        v[i]=i+1;
+   }
+   for (int j =0;j<3;j++){
+        cout<<v[j]<<"\t";
+    }
+    mv(mat,v,3);
+    return 0;
+}
