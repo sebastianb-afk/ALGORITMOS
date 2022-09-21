@@ -7,6 +7,8 @@ bool dohexaswap(string h,string h2){
         for(int i = 0,j = 0; i<h.size() || j<h2.size() ;i++ , j++){
             if((int)h[i]<(int)h2[i]){
                 return false;
+            }else{
+                return true;
             }
         }  
     }else if(h.size() < h2.size()){
