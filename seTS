@@ -1,0 +1,120 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Set{
+private:
+
+    vector<int> set;
+    
+public:
+    
+    bool contains(int a){
+        for(int i = 0;i<set.size();i++){
+            if(set.at(i)==a){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    void add(int a){
+        if(contains(a)==0){
+            set.push_back(a);
+        }
+    }
+
+    int get(int i){
+        if(i>=set.size()){
+            throw out_of_range("Punto fuera del rango");
+        }else{
+            return set.at(i);
+        }
+    }
+    
+    int size(){
+        return set.size();
+    }
+
+    bool empty(){
+        if(set.size()==0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    Set inter(Set a){
+        Set inter;
+        if(set.size()<a.size()){
+            for(int i = 0;i<set.size();i++){
+                if(a.contains(set.at(i))){
+                    inter.add(set.at(i));
+                }
+            }
+        }else{
+            for(int i = 0;i<a.size();i++){
+                if(contains(a.get(i))){
+                    inter.add(set.at(i));
+                }
+            }
+        }
+        return inter;
+    }
+    
+    Set uni(Set a){
+        Set uni;
+        for(int i = 0;i<a.size();i++){
+            uni.add(a.get(i));
+        }for(int j = 0;j<set.size();j++){
+            uni.add(set.at(j));
+        }
+        return uni;
+    }
+    
+    Set diff(Set a){
+        Set dif;
+        for(int i = 0;i<set.size();i++){
+            if(a.contains(set.at(i)) == 0){
+                dif.add(set.at(i));
+            }
+        }
+        return dif;
+    }
+    
+    void print(){
+        for(int i = 0; i<set.size();i++){
+            cout<< set.at(i)<<endl;
+        }
+    }
+    
+};
+
+int main(){
+    
+    Set c;
+    Set d;
+    
+    for(int i = 0; i<7;i++){
+        c.add(i);
+    }for(int i = 0; i<10;i++){
+        d.add(i+5);
+    }
+    
+    //cout<<c.contains();
+    c.print();
+    cout<<endl;
+    cout<<endl;
+    d.print();
+    cout<<endl;
+    cout<<endl;
+    /*Set u = c.uni(d);
+    u.print();*/
+    /*Set in = c.inter(d);
+    in.print();*/
+    Set dif = c.diff(d);
+    dif.print();
+    
+    
+    return 0;
+}
